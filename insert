@@ -1,0 +1,7 @@
+#!/bin/bash
+db="bloodedguild"
+psql -f initialize.sql $db
+psql -f categories.sql $db
+psql -f subcategories.sql $db
+psql -f threads.sql $db
+psql -f posts.sql $db

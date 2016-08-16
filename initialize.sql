@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS threads;
+DROP TABLE IF EXISTS subcategories;
+DROP TABLE IF EXISTS categories;
