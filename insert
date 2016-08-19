@@ -1,6 +1,8 @@
 #!/bin/bash
 db="bloodedguild"
 psql -f initialize.sql $db
+psql -f groups.sql $db
+psql -f users.sql $db
 psql -f categories.sql $db
 psql -f subcategories.sql $db
 psql -f threads.sql $db
