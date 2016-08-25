@@ -4,7 +4,6 @@ CREATE TABLE threads (
 	timestamp timestamp without time zone default (now() at time zone 'utc') not null,
 	locked boolean DEFAULT false not null,
 	subcategory_id int not null,
-	category_id int not null,
 	user_id int not null REFERENCES users(id),
-	FOREIGN KEY (subcategory_id, category_id) REFERENCES subcategories (id, category_id)
+	FOREIGN KEY (subcategory_id) REFERENCES subcategories (id)
 );
