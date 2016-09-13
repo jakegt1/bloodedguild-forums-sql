@@ -1,6 +1,6 @@
 CREATE TABLE threads (
 	id BIGSERIAL primary key,
-	title VARCHAR(64) not null,
+	title VARCHAR(256) not null,
 	timestamp timestamp without time zone default (now() at time zone 'utc') not null,
 	locked boolean DEFAULT false not null,
 	subcategory_id int not null,
