@@ -1,3 +1,4 @@
+DROP VIEW IF EXISTS users_post_counts;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS threads;
 DROP TABLE IF EXISTS subcategories;
