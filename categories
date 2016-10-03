@@ -1,0 +1,3 @@
+#!/bin/bash
+db="bloodedguild"
+psql -f categories.sql $db

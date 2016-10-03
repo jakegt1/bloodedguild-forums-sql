@@ -1,5 +1,5 @@
 #!/bin/bash
-db="bloodedguild"
+db="bloodedguild_testing"
 psql -f initialize.sql $db
 psql -f groups.sql $db
 psql -f users.sql $db

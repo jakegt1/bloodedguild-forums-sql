@@ -11,3 +11,4 @@ INSERT INTO subcategories (title, description, category_id) VALUES ('Stupidity C
 INSERT INTO groups (name) VALUES ('user');
 INSERT INTO groups (name) VALUES ('dev');
 INSERT INTO groups (name) VALUES ('gm');
+
