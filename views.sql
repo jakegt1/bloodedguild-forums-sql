@@ -12,9 +12,9 @@ CREATE VIEW subcategories_thread_counts AS
 	GROUP BY subcategories.id;
 
 CREATE VIEW subcategories_main AS
-	select SC.id, P.thread_id, T.title, P.user_id, P.timestamp, U.username, U.avatar, G.name FROM
+	select SC.id, P.thread_id, T.title, P.user_id, P.timestamp, U.username, U.avatar FROM
 	posts AS P, subcategories_thread_counts as SC,
-	threads AS T, users as U, groups as G
+	threads AS T, users as U
 	WHERE
 	P.id in (
 		SELECT MAX(posts.id) FROM
@@ -25,4 +25,3 @@ CREATE VIEW subcategories_main AS
 	AND P.thread_id = T.id
 	AND T.subcategory_id = SC.id
 	AND P.user_id = U.id
-	AND U.group_id = G.id
