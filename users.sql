@@ -6,5 +6,6 @@ CREATE TABLE users(
 	password_hash varchar(256) not null,
 	email varchar(50) not null,
 	avatar varchar(256) default 'i.imgur.com/ZhMHYZD.gif' not null,
-	group_id int references groups(id) not null
+	group_id int references groups(id) not null,
+	signature text default '' not null
 );
