@@ -5,6 +5,12 @@ CREATE VIEW users_post_counts AS
 	INNER JOIN groups on users.group_id = groups.id
 	GROUP BY users.id, groups.name;
 
+CREATE VIEW threads_post_counts AS
+	SELECT threads.*, count(posts.id) FROM
+	threads
+	LEFT JOIN posts ON threads.id = posts.thread_id
+	GROUP BY threads.id;
+
 CREATE VIEW subcategories_thread_counts AS
 	SELECT subcategories.*, count(threads.id) AS thread_count FROM
 	subcategories
