@@ -9,6 +9,7 @@ INSERT INTO subcategories (title, description, category_id) VALUES ('Forum Games
 INSERT INTO subcategories (title, description, category_id) VALUES ('derp', 'haha you made funny meme', 3);
 INSERT INTO subcategories (title, description, category_id) VALUES ('Stupidity Corner', 'dumb forum games, dumb discussion, dumb.', 3);
 INSERT INTO groups (name) VALUES ('user');
-INSERT INTO groups (name) VALUES ('dev');
-INSERT INTO groups (name) VALUES ('gm');
-INSERT INTO groups (name) VALUES ('verified');
+INSERT INTO groups (name, privilege) VALUES ('dev', 3);
+INSERT INTO groups (name, privilege) VALUES ('gm', 3);
+INSERT INTO groups (name, privilege) VALUES ('verified', 1);
+INSERT INTO groups (name, privilege) VALUES ('officer', 2)

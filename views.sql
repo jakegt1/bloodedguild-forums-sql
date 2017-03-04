@@ -1,9 +1,9 @@
 CREATE VIEW users_post_counts AS
-	SELECT users.*, COUNT(posts.id), groups.name FROM
+	SELECT users.*, COUNT(posts.id), groups.name, groups.privilege FROM
 	users
 	LEFT JOIN posts on users.id = posts.user_id
 	INNER JOIN groups on users.group_id = groups.id
-	GROUP BY users.id, groups.name;
+	GROUP BY users.id, groups.name, groups.privilege;
 
 CREATE VIEW threads_post_counts AS
     SELECT threads.*, count(posts.id) FROM
