@@ -1,9 +1,15 @@
 CREATE VIEW users_post_counts AS
-	SELECT users.*, COUNT(posts.id), groups.name FROM
+	SELECT users.*, COUNT(posts.id), groups.name, groups.privilege FROM
 	users
 	LEFT JOIN posts on users.id = posts.user_id
 	INNER JOIN groups on users.group_id = groups.id
-	GROUP BY users.id, groups.name;
+	GROUP BY users.id, groups.name, groups.privilege;
+
+CREATE VIEW threads_post_counts AS
+    SELECT threads.*, count(posts.id) FROM
+    threads
+    LEFT JOIN posts ON threads.id = posts.thread_id
+    GROUP BY threads.id;
 
 CREATE VIEW threads_post_counts AS
 	SELECT threads.*, count(posts.id) FROM
@@ -12,10 +18,10 @@ CREATE VIEW threads_post_counts AS
 	GROUP BY threads.id;
 
 CREATE VIEW subcategories_thread_counts AS
-	SELECT subcategories.*, count(threads.id) AS thread_count FROM
-	subcategories
-	LEFT JOIN threads ON subcategories.id = threads.subcategory_id
-	GROUP BY subcategories.id;
+    SELECT SC.*, sum(COALESCE( T.count, 0 )) from
+    subcategories as SC
+    LEFT JOIN threads_post_counts as T on SC.id = T.subcategory_id
+    GROUP BY SC.id;
 
 CREATE VIEW subcategories_main AS
 	select SC.id, P.thread_id, T.title, P.user_id, P.timestamp, U.username, U.avatar, U.name FROM
